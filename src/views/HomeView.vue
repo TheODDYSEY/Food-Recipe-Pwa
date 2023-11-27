@@ -42,8 +42,20 @@ import axios from 'axios';
 import {ref} from "vue"
 
 const popularRecipes = ref([])
-const recentlyViewed = JSON.parse(localStorage.getItem('recently-viewed'));
+const recentlyViewed = ref([]);
 
+(async () => {
+  if ('caches' in window){
+    const cache = await caches.open('recently-viewed')
+    const responses = await cache.matchAll()
+    if(responses.length) {
+      const responsesData = await Promise.all(responses.map(async (response) => 
+        await response.json()
+      ))
+      recentlyViewed.value = responsesData
+    }
+  }
+})();
 (async() => {
   const res = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=8&sort=popularity&addRecipeInformation=true&apiKey=${process.env.VUE_APP_API_KEY}`);
   if (res?.data) popularRecipes.value = res.data.results
