@@ -49,7 +49,7 @@ To set up and run this project, you need:
 1. Clone the repository:
 
    ```bash
-   git clone -b starter https://github.com/Priyesco/food-recipe-pwa.git
+   git clone -b starter https://github.com/TheODDYSEY/Food-Recipe-Pwa
    cd food-recipe-pwa
    npm install
    ```
