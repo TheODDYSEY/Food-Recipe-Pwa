@@ -1,20 +1,24 @@
 <template>
   <div class="hero">
-    <img src="../assets/rice-dish.png"/>
-    <img src="../assets/orange-dish.png"/>
-    <img src="../assets/egg-dish.png"/>
+    <img src="../assets/rice-dish.png" />
+    <img src="../assets/orange-dish.png" />
+    <img src="../assets/egg-dish.png" />
     <div class="hero-content wrapper">
       <div>
         <h3>Welcome</h3>
         <h1>Your Culinary Journey Begins Here</h1>
       </div>
-      <SearchForm v-on:submitEvent="(searchvalue) => $router.push(`/search?search=${searchvalue}`)" />
+      <SearchForm
+        v-on:submitEvent="
+          (searchvalue) => $router.push(`/search?search=${searchvalue}`)
+        "
+      />
     </div>
   </div>
 </template>
 
 <script setup>
-import SearchForm from './SearchForm.vue';
+import SearchForm from "./SearchForm.vue";
 </script>
 
 <style scoped>
@@ -22,13 +26,13 @@ import SearchForm from './SearchForm.vue';
   width: 100%;
   height: 70vw;
   background-color: white;
-  min-height:400px;
+  min-height: 400px;
   max-height: 600px;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
 }
 
 .hero img {
